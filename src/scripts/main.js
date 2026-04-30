@@ -1,18 +1,18 @@
 'use strict';
 
-const largeImg = document.querySelector('.gallery__large-img');
+const largeImg = document.querySelector('#largeImg');
 const list = document.querySelector('ul');
 
 list.addEventListener('click', (ev) => {
   ev.preventDefault();
 
-  let link = ev.target.parentElement;
+  let link;
 
   if (ev.target.tagName === 'IMG') {
     link = ev.target.parentElement;
-  }
-
-  if (link.tagName !== 'A') {
+  } else if (ev.target.tagName === 'A') {
+    link = ev.target;
+  } else {
     return;
   }
 
